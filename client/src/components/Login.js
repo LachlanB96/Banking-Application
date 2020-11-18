@@ -2,14 +2,14 @@ import React from 'react'
 import TextInput from './TextInput'
 
 
-const CreateUser = ({ onChangeForm, createUser }) => {
+const Login = ({ onChangeForm, createUser }) => {
 
 
     return (
         <div className="container">
             <div className="row">
                 <div className="col-md-7 mrgnbtm">
-                    <h2>Create User</h2>
+                    <h2>Login</h2>
                     <form>
                         <div className="row">
                             <div className="form-group col-md-6">
@@ -24,11 +24,6 @@ const CreateUser = ({ onChangeForm, createUser }) => {
                                 <TextInput label={"Email"} id={"email"} className={'form-control'} onChange={onChangeForm} />
                             </div>
                         </div>
-                        <div className="row">
-                            <div className="form-group col-md-12">
-                                <TextInput label={"Password"} id={"password"} className={'form-control'} type={"password"} onChange={onChangeForm} />
-                            </div>
-                        </div>
                         <button type="button" onClick={(e) => createUser()} className="btn btn-danger">Create</button>
                     </form>
                 </div>
@@ -37,4 +32,4 @@ const CreateUser = ({ onChangeForm, createUser }) => {
     )
 }
 
-export default CreateUser
+export default Login

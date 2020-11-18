@@ -5,6 +5,7 @@ import { Header } from './components/Header'
 import { Users } from './components/Users'
 import { DisplayBoard } from './components/DisplayBoard'
 import CreateUser from './components/CreateUser'
+import Login from './components/Login'
 import { getAllUsers, createUser } from './services/UserService'
 
 class App extends Component {
@@ -32,6 +33,7 @@ class App extends Component {
   }
 
   onChangeForm = (e) => {
+    console.log(e.target.name);
       let user = this.state.user
       if (e.target.name === 'firstname') {
           user.firstName = e.target.value;
@@ -39,8 +41,11 @@ class App extends Component {
           user.lastName = e.target.value;
       } else if (e.target.name === 'email') {
           user.email = e.target.value;
+      } else if (e.target.name === 'password') {
+          user.password = e.target.value;
       }
       this.setState({user})
+      console.log(this.state.user)
   }
 
   render() {
@@ -57,6 +62,7 @@ class App extends Component {
                   createUser={this.createUser}
                   >
                 </CreateUser>
+              <Login />
             </div>
             <div className="col-md-4">
                 <DisplayBoard

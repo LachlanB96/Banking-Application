@@ -16,6 +16,7 @@ app.get('/api/users', (req, res) => {
 });
 
 app.post('/api/user', (req, res) => {
+  console.log(req.body.user);
   const user = req.body.user;
   console.log('Adding user:::::', user);
   users.push(user);
