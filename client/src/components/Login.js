@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import TextInput from './TextInput'
 
 
-const Login = ({ onChangeForm, createUser }) => {
+function Login(props){
+
+    const [user, setUser] = useState(null);
+    const [pass, setPass] = useState(null);
+
+    function onChangeForm(e) {
+        console.log(e.target.value);
+        if (e.target.name === 'email') {
+            setUser(e.target.value);
+        } else if (e.target.name === 'password') {
+            setPass(e.target.value);
+        }
+    }
 
 
     return (
@@ -12,19 +24,16 @@ const Login = ({ onChangeForm, createUser }) => {
                     <h2>Login</h2>
                     <form>
                         <div className="row">
-                            <div className="form-group col-md-6">
-                                <TextInput label={"First Name"} id={"firstname"} className={'form-control'} onChange={onChangeForm} />
-                            </div>
-                            <div className="form-group col-md-6">
-                                <TextInput label={"Last Name"} id={"lastname"} className={'form-control'} onChange={onChangeForm} />
+                            <div className="form-group col-md-12">
+                                <TextInput label={"Email"} id={"email"} className={'form-control'} onChange={(e) => onChangeForm(e)} />
                             </div>
                         </div>
                         <div className="row">
                             <div className="form-group col-md-12">
-                                <TextInput label={"Email"} id={"email"} className={'form-control'} onChange={onChangeForm} />
+                                <TextInput label={"Password"} id={"password"} className={'form-control'} type={"password"} onChange={(e) => onChangeForm(e)} />
                             </div>
                         </div>
-                        <button type="button" onClick={(e) => createUser()} className="btn btn-danger">Create</button>
+                        <button type="button" onClick={props.login({ user, pass })} className="btn btn-danger">Login</button>
                     </form>
                 </div>
             </div>

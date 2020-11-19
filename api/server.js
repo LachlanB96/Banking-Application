@@ -23,6 +23,11 @@ app.post('/api/user', (req, res) => {
   res.json("user addedd");
 });
 
+app.post('/api/login', (req, res) => {
+  console.log(req.body);
+  res.json("user addedd");
+});
+
 app.get('/', (req,res) => {
   res.sendFile(path.join(__dirname, '../my-app/build/index.html'));
 });
